@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-Shop — Premium Marketplace</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS file link -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app" id="app">
+    <header>
+      <a class="logo" href="#">
+        <div class="mark">ES</div>
+        <div>E-Shop</div>
+      </a>
+
+      <div class="searchbar">
+        <input id="searchInput" placeholder="Search for products, brands and more..." />
+        <button id="searchBtn">Search</button>
+      </div>
+
+      <div class="actions">
+        <div class="icon-btn" id="wishBtn">❤
+          <span class="muted-small" style="margin:0">Wishlist</span>
+        </div>
+        <div class="icon-btn" id="cartBtn">
+          🛒 <span id="cartCount" class="muted-small" style="margin:0">0</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="newsletter">
+      <img src="hero.png" class="newsletter-bg" alt="Hero Image">
+      <div class="newsletter-content">
+        <h3 class="newsletter-title">Elevate Your Lifestyle.</h3>
+        <p class="newsletter-desc">
+          Discover our curated collection of premium products. Subscribe now for exclusive early access and 50% off your
+          first order.
+        </p>
+        <form action="#">
+          <input type="email" name="email" class="email-field" placeholder="Email Address" required>
+          <button type="submit" class="btn-newsletter">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <main class="main">
+      <aside class="filters">
+        <h3>Filters</h3>
+        <div class="filter-group">
+          <div class="muted-small">Category</div>
+          <div class="chips" id="categoryChips"></div>
+        </div>
+        <div class="filter-group">
+          <div class="muted-small">Sort</div>
+          <select id="sortSelect">
+            <option value="relevance">Relevance</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <div class="muted-small">Price</div>
+          <input id="maxPrice" type="range" min="10" max="1000" value="1000" />
+          <div class="muted-small">Max: $<span id="maxPriceVal">1000</span></div>
+        </div>
+      </aside>
+
+      <section>
+        <div class="toolbar">
+          <div class="muted-small" id="resultsInfo">Showing 0 results</div>
+          <div class="pagination">
+            <button class="btn btn-outline" id="prevPage">Prev</button>
+            <div class="muted-small" id="pageInfo" style="display:inline-block;margin:0 12px">1</div>
+            <button class="btn btn-outline" id="nextPage">Next</button>
+          </div>
+        </div>
+
+        <div class="grid" id="productGrid"></div>
+      </section>
+    </main>
+
+    <!-- Cart Drawer -->
+    <aside class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <div>Your Cart</div>
+        <button class="btn btn-outline" id="closeCart">Close</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div style="margin-bottom:16px;font-size:18px;font-weight:700;display:flex;justify-content:space-between">
+          <span>Total:</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+        <button class="btn btn-primary" id="checkoutBtn" style="width:100%">Checkout</button>
+      </div>
+    </aside>
+
+    <!-- Modal -->
+    <div class="overlay" id="overlay">
+      <div class="modal" id="productModal">
+        <div>
+          <div class="carousel" id="modalImageArea"></div>
+          <div class="thumbs" id="modalThumbs"></div>
+        </div>
+        <div>
+          <h2 id="modalTitle">Product title</h2>
+          <div id="modalBrand">Brand</div>
+          <div id="modalPrice">$0.00</div>
+          <div id="modalDesc">Description</div>
+          <div class="modal-actions">
+            <button class="btn btn-primary" id="modalAdd">Add to cart</button>
+            <button class="btn btn-outline" id="modalClose">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS file link -->
+  <script src="script.js"></script>
+</body>
+
+</html>
